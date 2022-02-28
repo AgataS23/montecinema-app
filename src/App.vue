@@ -1,24 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HomePage></HomePage>
+    <RegisterPage></RegisterPage>
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import HomePage from "./views/HomePage.vue";
+import RegisterPage from "./views/RegisterPage.vue";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld,
+  views: {
+    HomePage,
+    RegisterPage,
   },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "@/styles/global/index.scss";
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  // $red: red;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
