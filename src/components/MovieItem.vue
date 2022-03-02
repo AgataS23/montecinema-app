@@ -4,7 +4,7 @@
     :to="{ name: 'Movie', params: { movieId: movie.id } }"
   >
     {{ movie.title }}
-    nbnb
+    <p>movie item for test</p>
   </router-link>
 </template>
 

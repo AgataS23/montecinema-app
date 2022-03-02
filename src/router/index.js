@@ -22,6 +22,7 @@ const routes = [
     path: "/movies/:movieId",
     name: "Movie",
     component: MoviePage,
+    props: true,
   },
   {
     path: "/auth",

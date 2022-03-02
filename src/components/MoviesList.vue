@@ -1,6 +1,7 @@
 <template>
   <div class="movies-list">
     <MovieItem v-for="movie in movies" :key="movie.id" :movie="movie" />
+    <p>my list of movies</p>
   </div>
 </template>
 
@@ -14,7 +15,7 @@ export default {
     MovieItem,
   },
   computed: {
-    movie() {
+    movies() {
       return movies;
     },
   },
