@@ -1,16 +1,47 @@
 import VueRouter from "vue-router";
 
-import LogInPage from "@/views/LogInPage.vue";
+import HomePage from "@/views/HomePage.vue";
+import MoviesPage from "@/views/MoviesPage.vue";
+import MoviePage from "@/views/MoviePage.vue";
+import AuthPage from "@/views/AuthPage.vue";
+import LogInFormPage from "@/views/LogInFormPage.vue";
+import RegisterFormPage from "@/views/RegisterFormPage.vue";
 
 const routes = [
   {
     path: "/",
-    name: "LogIn",
-    component: LogInPage,
+    name: "Home",
+    component: HomePage,
+  },
+  {
+    path: "/movies",
+    name: "Movies",
+    component: MoviesPage,
+  },
+  {
+    path: "/movies/:movieId",
+    name: "Movie",
+    component: MoviePage,
+  },
+  {
+    path: "/auth",
+    component: AuthPage,
+    children: [
+      {
+        path: "/register",
+        name: "Register",
+        component: RegisterFormPage,
+      },
+      {
+        path: "/login",
+        name: "Login",
+        component: LogInFormPage,
+      },
+    ],
   },
   {
     path: "*",
-    redirect: "/404",
+    redirect: "/",
   },
 ];
 
