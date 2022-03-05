@@ -1,3 +1,15 @@
 <template>
-  <h1>Contact Us</h1>
+  <div>
+    <ContactUs />
+  </div>
 </template>
+
+<script>
+import ContactUs from "@/components/ContactUs.vue";
+
+export default {
+  components: {
+    ContactUs,
+  },
+};
+</script>

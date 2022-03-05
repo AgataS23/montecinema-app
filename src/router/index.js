@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import HomePage from "@/views/HomePage.vue";
 import MoviesPage from "@/views/MoviesPage.vue";
 import MoviePage from "@/views/MoviePage.vue";
+import ScreeningsPage from "@/views/ScreeningsPage.vue";
+import ContactUsPage from "@/views/ContactUsPage.vue";
 import AuthPage from "@/views/AuthPage.vue";
 import LogInFormPage from "@/views/LogInFormPage.vue";
 import RegisterFormPage from "@/views/RegisterFormPage.vue";
@@ -25,6 +27,11 @@ const routes = [
     props: true,
   },
   {
+    path: "/screenings",
+    name: "Screenings",
+    component: ScreeningsPage,
+  },
+  {
     path: "/auth",
     component: AuthPage,
     children: [
@@ -39,6 +46,11 @@ const routes = [
         component: LogInFormPage,
       },
     ],
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: ContactUsPage,
   },
   {
     path: "*",
