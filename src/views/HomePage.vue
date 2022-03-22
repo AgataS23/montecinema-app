@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <TopMenu></TopMenu>
     <WelcomeWrapper></WelcomeWrapper>
     <WelcomeMovieAbout></WelcomeMovieAbout>

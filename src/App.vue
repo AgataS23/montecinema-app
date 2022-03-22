@@ -1,19 +1,13 @@
 <template>
-  <div id="app">
-    <main>
-      <router-view />
-    </main>
-  </div>
+  <main>
+    <router-view />
+  </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/styles/global/index.scss";
-#app {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html {
+  // font-size: 10px;
+  font-size: 62.5%;
 }
 </style>

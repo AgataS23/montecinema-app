@@ -1,48 +1,73 @@
 <template>
-  <div>
-    <form action="" class="form-email">
-      <label for="email" class="form-email__label">email</label>
-      <input
-        v-model="email"
-        type="email"
-        id="email"
-        :value="value"
-        placeholder="your email"
-        required
-        class="form-email__input"
-        @input="$emit('$event.target.value')"
-      />
-    </form>
+  <div class="email">
+    <label for="email" class="email__label">email</label>
+    <input
+      v-model="email"
+      type="email"
+      name="email"
+      id="email"
+      class="email__input"
+      placeholder="user@email.com"
+      required
+      v-on:input="changedEmail"
+    />
+    {{ errors }}
   </div>
 </template>
 
 <script>
 export default {
   name: "InputMail",
-  props: {
-    value: {
-      type: String,
-      default: "",
+  data() {
+    return {
+      errors: [],
+      email: "",
+    };
+  },
+  methods: {
+    changedEmail(e) {
+      this.$emit("emailChanged", this.email);
+      this.errors = [];
+      if (!this.email) {
+        this.errors.push("Email required");
+      } else if (!this.validEmail(this.email)) {
+        this.errors.push("Valid email required.");
+      }
+
+      if (!this.errors.length) {
+        return true;
+      }
+
+      e.preventDefault();
+    },
+    validEmail(email) {
+      var re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.form-email {
-  display: inline-block;
-  position: relative;
-  padding: 10px;
-  min-width: 200px;
+.email {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   &__label {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    text-transform: uppercase;
+    margin: 5px;
+    color: red;
+    align-self: flex-start;
   }
-  &__input{
-    border: 1px solid #333;
-    padding: 8px;
-    border-radius: 5px'
+  &__input {
+    background-color: #f7f7f7;
+    padding: 24px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 472px;
   }
 }
 </style>
