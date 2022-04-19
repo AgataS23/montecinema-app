@@ -1,23 +1,21 @@
 <template>
   <div>
     <TopMenu />
+    <TopMenuNav />
     <h1>Movies</h1>
     <MoviesList />
-    <!-- <router-link :to="{ name: 'Home' }"> bact to home </router-link>
-    <router-link :to="{ name: 'Movie', params: { movieId: movie.id } }">
-      movie
-    </router-link>
-    <router-view /> -->
   </div>
 </template>
 
 <script>
-import MoviesList from "@/components/MoviesList.vue";
 import TopMenu from "@/components/TopMenu.vue";
-
+import TopMenuNav from "@/components/TopMenuNav.vue";
+import MoviesList from "@/components/MoviesList.vue";
 export default {
+  name: "MoviesPage",
   components: {
     TopMenu,
+    TopMenuNav,
     MoviesList,
   },
 };
